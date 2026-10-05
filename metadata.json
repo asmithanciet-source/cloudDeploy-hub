@@ -1,0 +1,6 @@
+{
+  "name": "CloudDeploy Hub",
+  "description": "Personal Cloud, DevOps, and deployment tracker for engineering students and developers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

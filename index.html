@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudDeploy Hub — Cloud & DevOps Learning & Deployment Tracker</title>
+    <meta name="description" content="Personal Cloud, DevOps, and deployment tracker for engineering students and developers." />
+    <meta property="og:title" content="CloudDeploy Hub — Cloud & DevOps Learning & Deployment Tracker" />
+    <meta property="og:description" content="Personal Cloud, DevOps, and deployment tracker for engineering students and developers." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Application Stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- HEADER / TOP NAVIGATION BAR -->
+    <header class="site-header">
+      <div class="nav-container">
+        <!-- Zone 1: Brand Wordmark -->
+        <a href="#home" class="brand" aria-label="CloudDeploy Hub Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+              <polyline points="13 13 16 10 19 13"></polyline>
+              <line x1="16" y1="10" x2="16" y2="16"></line>
+            </svg>
+          </div>
+          <span>CloudDeploy <span class="accent">Hub</span></span>
+        </a>
+
+        <!-- Zone 2: Navigation Links -->
+        <nav>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#learning" class="nav-link">Learning</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#deployment" class="nav-link">Deployment</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+          </ul>
+        </nav>
+
+        <!-- Zone 3: Actions -->
+        <div class="header-actions">
+          <button class="btn btn-outline btn-sm" onclick="openProjectModal()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+              <path d="M3 9h18"></path>
+              <path d="M9 21V9"></path>
+            </svg>
+            <span>Architecture</span>
+          </button>
+          <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. HOME / HERO SECTION -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>CSE Student DevOps &amp; Cloud Journey</span>
+            </div>
+
+            <h1 class="hero-title">
+              Master Cloud &amp; DevOps
+              <span class="tagline">“Learn. Build. Deploy.”</span>
+            </h1>
+
+            <p class="hero-description">
+              Track your Cloud, DevOps and deployment journey in one place. A structured engineering dashboard to document technologies mastered, multi-stage pipelines, and real project milestones.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#learning" class="btn btn-primary">
+                <span>Start Learning</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+              <a href="#projects" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m18 15-6-6-6 6"></path>
+                </svg>
+                <span>View Projects</span>
+              </a>
+            </div>
+
+            <!-- Statistics Grid -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+                    <path d="M6 6h10"></path>
+                    <path d="M6 10h10"></path>
+                  </svg>
+                </div>
+                <div class="stat-value tabular-nums" id="stat-learning-count">6</div>
+                <div class="stat-label">Learning Modules</div>
+                <div class="stat-meta">1 Done · 2 Active</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                    <line x1="8" x2="16" y1="21" y2="21"></line>
+                    <line x1="12" x2="12" y1="17" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="stat-value tabular-nums" id="stat-projects-count">1</div>
+                <div class="stat-label">Projects</div>
+                <div class="stat-meta">CloudDeploy Hub v1</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon purple">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div class="stat-value tabular-nums" id="stat-deployments-count">0</div>
+                <div class="stat-label">Deployments</div>
+                <div class="stat-meta">Local Dev Active</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon amber">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <div class="stat-value tabular-nums" id="stat-skills-count">6</div>
+                <div class="stat-label">Skills</div>
+                <div class="stat-meta">DevOps &amp; Cloud Stack</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. LEARNING DASHBOARD -->
+      <section id="learning" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Curriculum &amp; Progression</span>
+            <h2 class="section-title">DevOps &amp; Cloud Learning Dashboard</h2>
+            <p class="section-subtitle">
+              Interactive syllabus covering Linux servers, Git collaboration, AWS cloud infrastructure, containerization, and continuous delivery.
+            </p>
+          </div>
+
+          <!-- Controls: Search & Status Filters -->
+          <div class="learning-controls">
+            <div class="search-box">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="learning-search" placeholder="Search technologies or commands..." aria-label="Search learning modules" />
+            </div>
+
+            <div class="filter-group" role="tablist">
+              <button class="filter-btn active" data-filter="all" role="tab">All Modules</button>
+              <button class="filter-btn" data-filter="learning" role="tab">In Progress</button>
+              <button class="filter-btn" data-filter="completed" role="tab">Completed</button>
+              <button class="filter-btn" data-filter="upcoming" role="tab">Upcoming</button>
+            </div>
+          </div>
+
+          <!-- Cards Grid for Linux, Git & GitHub, AWS, Docker, CI/CD, Monitoring -->
+          <div class="cards-grid" id="learning-cards-grid">
+            <!-- Rendered dynamically by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PROJECTS SECTION -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Hands-On Implementations</span>
+            <h2 class="section-title">Portfolio Projects</h2>
+            <p class="section-subtitle">
+              Real engineering artifacts built and progressively deployed from local workstation to AWS Cloud.
+            </p>
+          </div>
+
+          <div class="projects-header-bar">
+            <span class="projects-count-indicator" id="projects-count-indicator">Showing 1 Portfolio Project</span>
+            <button class="btn btn-primary btn-sm" onclick="openAddProjectModal()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Add My Project</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Projects List Container -->
+          <div class="projects-list" id="projects-list">
+            <!-- Rendered dynamically by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. DEPLOYMENT DASHBOARD -->
+      <section id="deployment" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Multi-Stage Release Pipeline</span>
+            <h2 class="section-title">Deployment Dashboard</h2>
+            <p class="section-subtitle">
+              Visual release pipeline tracking CloudDeploy Hub across progressive deployment phases from Local development to automated CI/CD and Monitoring.
+            </p>
+          </div>
+
+          <div class="deployment-overview">
+            <div class="pipeline-meta-bar">
+              <div class="pipeline-project-info">
+                <span class="pipeline-project-name">CloudDeploy Hub</span>
+                <span class="status-badge learning">
+                  <span class="status-indicator-dot"></span>
+                  Status: Development
+                </span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <div class="pipeline-meta-item">
+                  <span>Environment:</span>
+                  <strong>Development (Localhost)</strong>
+                </div>
+                <div class="pipeline-meta-item">
+                  <span>Target Release:</span>
+                  <strong>Version 1.0.0</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8-Stage Pipeline Track -->
+            <div class="pipeline-track" id="pipeline-track">
+              <!-- Rendered dynamically by script.js -->
+            </div>
+
+            <!-- Interactive Stage Inspector Panel -->
+            <div class="stage-inspector-panel">
+              <div>
+                <h3 class="inspector-title" id="inspector-title">Stage Details</h3>
+                <p class="inspector-desc" id="inspector-desc">Select a stage to inspect configuration and deployment commands.</p>
+
+                <div style="margin-bottom: 1rem; display: flex; gap: 1.5rem; font-size: 0.8125rem;">
+                  <div>
+                    <span style="color: var(--slate-500); display: block;">Toolchain:</span>
+                    <strong id="inspector-tool" style="color: var(--navy-900);">Tool</strong>
+                  </div>
+                  <div>
+                    <span style="color: var(--slate-500); display: block;">Environment:</span>
+                    <strong id="inspector-env" style="color: var(--navy-900);">Environment</strong>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--slate-500); margin-bottom: 0.5rem;">
+                    Stage Verification Checklist:
+                  </h4>
+                  <ul id="inspector-checklist" style="list-style: none;"></ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="terminal-box">
+                  <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span style="margin-left: 0.5rem; font-size: 0.75rem; color: var(--slate-400);">deployment-terminal ~ bash</span>
+                  </div>
+                  <div id="inspector-terminal">
+                    <!-- Commands injected here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SKILLS SECTION -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Technical Competencies</span>
+            <h2 class="section-title">Core Skills &amp; Badges</h2>
+            <p class="section-subtitle">
+              Comprehensive technical skill set spanning systems engineering, version control, cloud platforms, and modern web standards.
+            </p>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="skills-filter-container">
+            <button class="skill-category-btn active" data-category="all">All Skills</button>
+            <button class="skill-category-btn" data-category="Cloud Infrastructure">Cloud Infrastructure</button>
+            <button class="skill-category-btn" data-category="Version Control">Version Control</button>
+            <button class="skill-category-btn" data-category="Systems & OS">Systems &amp; OS</button>
+            <button class="skill-category-btn" data-category="Frontend Web">Frontend Web</button>
+          </div>
+
+          <!-- Skills Grid -->
+          <div class="skills-grid" id="skills-grid">
+            <!-- Rendered by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. ROADMAP -->
+      <section id="roadmap" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Evolution Strategy</span>
+            <h2 class="section-title">Platform Architecture Roadmap</h2>
+            <p class="section-subtitle">
+              Progressive 8-version evolution path from single-page frontend prototype to automated cloud-native microservices with production monitoring.
+            </p>
+          </div>
+
+          <div class="roadmap-container">
+            <div class="roadmap-track-line"></div>
+            <div class="roadmap-list">
+              <!-- Version 1 -->
+              <div class="roadmap-item active">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">01</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 1 → Frontend</span>
+                    <span class="status-badge completed" style="font-size: 0.7rem;">Active Version</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">HTML + CSS + JavaScript</h3>
+                  <p class="roadmap-card-desc">
+                    Vanilla frontend implementation establishing clean semantic HTML, modular SaaS dashboard design system, and responsive state tracking without heavy framework overhead.
+                  </p>
+                  <ul class="roadmap-checklist">
+                    <li>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Semantic HTML5 dashboard layout with accessible navigation</span>
+                    </li>
+                    <li>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Responsive CSS3 styling with customized SaaS palette &amp; cards</span>
+                    </li>
+                    <li>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>Pure JavaScript data model with interactive curriculum &amp; progress checklist</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Version 2 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">02</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 2 → Git &amp; GitHub</span>
+                    <span class="status-badge learning" style="font-size: 0.7rem;">In Progress</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">Version Control &amp; Repository Management</h3>
+                  <p class="roadmap-card-desc">
+                    Structured Git workflow with feature branches, semantic commit messages, documentation, issue templates, and GitHub releases.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Version 3 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">03</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 3 → Backend</span>
+                    <span class="status-badge upcoming" style="font-size: 0.7rem;">Upcoming</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">REST API + Database</h3>
+                  <p class="roadmap-card-desc">
+                    Node.js &amp; Express server providing persistent REST endpoints for progress tracking, student accounts, and PostgreSQL or SQLite storage.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Version 4 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">04</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 4 → AWS</span>
+                    <span class="status-badge upcoming" style="font-size: 0.7rem;">Upcoming</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">Cloud Deployment</h3>
+                  <p class="roadmap-card-desc">
+                    Deploying the application to Amazon Web Services using S3 bucket hosting, CloudFront CDN, and EC2 virtual machines with security groups.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Version 5 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">05</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 5 → Docker</span>
+                    <span class="status-badge upcoming" style="font-size: 0.7rem;">Upcoming</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">Containerization</h3>
+                  <p class="roadmap-card-desc">
+                    Writing production-grade Dockerfiles, multi-stage builds, environment isolation, and multi-container Docker Compose definitions.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Version 6 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">06</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 6 → Nginx + HTTPS</span>
+                    <span class="status-badge upcoming" style="font-size: 0.7rem;">Upcoming</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">Production Web Server and Security</h3>
+                  <p class="roadmap-card-desc">
+                    Reverse proxy setup, SSL/TLS certificates via Let’s Encrypt Certbot, gzip compression, HTTP security headers, and domain routing.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Version 7 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">07</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 7 → CI/CD</span>
+                    <span class="status-badge upcoming" style="font-size: 0.7rem;">Upcoming</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">GitHub Actions Automated Deployment</h3>
+                  <p class="roadmap-card-desc">
+                    Automated workflows executing linting, unit testing, Docker image building, and automated deployment trigger upon pull request merge.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Version 8 -->
+              <div class="roadmap-item">
+                <div class="roadmap-marker">
+                  <div class="roadmap-dot">08</div>
+                </div>
+                <div class="roadmap-card">
+                  <div class="roadmap-card-top">
+                    <span class="roadmap-version">Version 8 → Monitoring</span>
+                    <span class="status-badge upcoming" style="font-size: 0.7rem;">Upcoming</span>
+                  </div>
+                  <h3 class="roadmap-stage-title">Logs, Health Checks and Monitoring</h3>
+                  <p class="roadmap-card-desc">
+                    Comprehensive observability stack with Prometheus metrics, Uptime Kuma health ping alerts, and central log rotation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 7. FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-lockup">
+            <a href="#home" class="brand">
+              <div class="brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                  <polyline points="13 13 16 10 19 13"></polyline>
+                  <line x1="16" y1="10" x2="16" y2="16"></line>
+                </svg>
+              </div>
+              <span>CloudDeploy Hub</span>
+            </a>
+            <div class="footer-tagline">“Learn. Build. Deploy.”</div>
+            <p class="footer-desc">
+              A personal Cloud &amp; DevOps tracker designed for Computer Science &amp; Engineering students to structure hands-on deployment mastery.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="#home">Home &amp; Overview</a></li>
+              <li><a href="#learning">Learning Modules</a></li>
+              <li><a href="#projects">Project Repository</a></li>
+              <li><a href="#deployment">Deployment Pipeline</a></li>
+              <li><a href="#skills">Skills Matrix</a></li>
+              <li><a href="#roadmap">Platform Roadmap</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Connect &amp; Social</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:student@clouddeploy.dev" onclick="event.preventDefault(); copyContactEmail('student@clouddeploy.dev');">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                  <span>Email (Copy Address)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 CloudDeploy Hub · Version 1.0.0 Portfolio Edition</div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--slate-400);">
+            Built with Semantic HTML5 · CSS3 · Vanilla JavaScript
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL: LEARNING MODULE DETAIL -->
+    <div class="modal-overlay" id="module-modal" role="dialog" aria-modal="true" aria-labelledby="modal-module-title">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--primary); letter-spacing: 0.05em;" id="modal-module-category">Category</div>
+            <h3 class="modal-title" id="modal-module-title">Module Title</h3>
+          </div>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Platform Launch Banner -->
+          <div style="display: flex; align-items: center; justify-content: space-between; background: var(--primary-light); border: 1px solid var(--primary-border); border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem;">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--slate-600); display: block;">Official Hands-on Platform</span>
+              <strong style="color: var(--primary); font-size: 0.925rem;" id="modal-platform-name">Platform</strong>
+            </div>
+            <a href="#" id="modal-platform-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <span>Go to Platform</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <p id="modal-module-desc" style="color: var(--slate-600); margin-bottom: 1.25rem; font-size: 0.95rem;"></p>
+
+          <div class="progress-container" style="margin-bottom: 1.5rem;">
+            <div class="progress-header">
+              <span>Interactive Progress</span>
+              <span class="progress-percent tabular-nums" id="modal-module-progress">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="modal-module-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy-900); margin-bottom: 0.75rem;">
+            Core Concepts &amp; Practical Checkpoints (Click to toggle)
+          </h4>
+          <ul id="modal-topics-list" style="list-style: none; margin-bottom: 1.5rem;"></ul>
+
+          <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy-900); margin-bottom: 0.5rem;">
+            DevOps Cheat Sheet
+          </h4>
+          <pre id="modal-cheatsheet" style="background: var(--navy-900); color: #38bdf8; padding: 1rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.8125rem; overflow-x: auto; margin-bottom: 1.5rem;"></pre>
+
+          <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 8px; padding: 1rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--slate-500); display: block; margin-bottom: 0.25rem;">Next Milestone</span>
+            <p id="modal-next-step" style="font-size: 0.875rem; color: var(--navy-900); margin: 0;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE MODAL: PROJECT ARCHITECTURE -->
+    <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+      <div class="modal-card" style="max-width: 680px;">
+        <div class="modal-header">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--primary); letter-spacing: 0.05em;">Project Architecture</div>
+            <h3 class="modal-title" id="modal-project-title">CloudDeploy Hub — Technical Overview</h3>
+          </div>
+          <button class="modal-close-btn" id="project-modal-close-btn" aria-label="Close modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 0.95rem; color: var(--slate-600); margin-bottom: 1.25rem;">
+            CloudDeploy Hub is designed with an extensible modular structure to cleanly transition from Version 1 (Pure Frontend) into full-stack and cloud-native topologies.
+          </p>
+
+          <div style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;">
+            <h4 style="font-size: 0.875rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.5rem;">Version 1 File Architecture</h4>
+            <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--slate-700); line-height: 1.6;">
+              ├── index.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Semantic HTML5 structure &amp; accessible landmarks<br />
+              ├── style.css &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Professional SaaS design system &amp; CSS variables<br />
+              └── script.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Data structures, progress state, pipeline inspector
+            </div>
+          </div>
+
+          <h4 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy-900); margin-bottom: 0.75rem;">
+            Extensibility Points (Planned for V2 - V8)
+          </h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.875rem; color: var(--slate-700); margin-bottom: 1.5rem;">
+            <li style="display: flex; gap: 0.5rem;">
+              <strong style="color: var(--primary); min-width: 80px;">Auth &amp; API:</strong>
+              <span>Ready for Express / REST API integration with student login/signup.</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem;">
+              <strong style="color: var(--primary); min-width: 80px;">Database:</strong>
+              <span>State schema maps directly to SQLite or PostgreSQL tables.</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem;">
+              <strong style="color: var(--primary); min-width: 80px;">Containers:</strong>
+              <span>Lightweight multi-stage Dockerfile using Nginx Alpine runtime.</span>
+            </li>
+            <li style="display: flex; gap: 0.5rem;">
+              <strong style="color: var(--primary); min-width: 80px;">CI/CD:</strong>
+              <span>Automated GitHub Actions lint, test, build, and AWS S3/EC2 sync.</span>
+            </li>
+          </ul>
+
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button class="btn btn-outline btn-sm" onclick="projectModal.classList.remove('open'); document.body.style.overflow = '';">
+              Close
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="projectModal.classList.remove('open'); document.body.style.overflow = ''; scrollToDeployment();">
+              Go to Pipeline
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE MODAL: ADD NEW PROJECT -->
+    <div class="modal-overlay" id="add-project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-add-project-title">
+      <div class="modal-card" style="max-width: 620px;">
+        <div class="modal-header">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--primary); letter-spacing: 0.05em;">Portfolio Projects</div>
+            <h3 class="modal-title" id="modal-add-project-title">Add Your Project</h3>
+          </div>
+          <button class="modal-close-btn" id="add-project-modal-close-btn" onclick="closeAddProjectModal()" aria-label="Close modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+            <p style="font-size: 0.85rem; color: var(--slate-600); margin: 0;">
+              Track any Cloud, DevOps, or Software Engineering project on your portfolio dashboard.
+            </p>
+            <button type="button" class="btn btn-outline btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="prefillSampleProject()">
+              ⚡ Pre-fill Sample
+            </button>
+          </div>
+
+          <form id="add-project-form" onsubmit="handleCreateProject(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="new-project-title">Project Name *</label>
+                <input type="text" id="new-project-title" class="form-input" placeholder="e.g. Microservices Pipeline" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-project-version">Version Tag</label>
+                <input type="text" id="new-project-version" class="form-input" placeholder="e.g. v1.0.0" value="v1.0.0" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="new-project-desc">Description *</label>
+              <textarea id="new-project-desc" class="form-textarea" rows="2" placeholder="Brief summary of your project and architecture..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="new-project-tech">Tech Stack (comma-separated) *</label>
+              <input type="text" id="new-project-tech" class="form-input" placeholder="e.g. Python, Docker, AWS EC2, GitHub Actions, Nginx" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="new-project-status">Project Status *</label>
+                <select id="new-project-status" class="form-select">
+                  <option value="In Development">In Development</option>
+                  <option value="Completed">Completed</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Planning">Planning</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="new-project-env">Deployment Environment *</label>
+                <select id="new-project-env" class="form-select">
+                  <option value="Local Development">Local Development</option>
+                  <option value="AWS Staging">AWS Staging</option>
+                  <option value="AWS Production">AWS Production</option>
+                  <option value="Docker Container">Docker Container</option>
+                  <option value="Kubernetes Cluster">Kubernetes Cluster</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="new-project-cloud">Target Cloud</label>
+                <input type="text" id="new-project-cloud" class="form-input" placeholder="e.g. AWS EC2 / ECS / S3" value="AWS EC2 / S3" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="new-project-repo">Repository (GitHub/GitLab)</label>
+                <input type="text" id="new-project-repo" class="form-input" placeholder="e.g. github.com/cse-student/repo" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline btn-sm" onclick="closeAddProjectModal()">Cancel</button>
+              <button type="submit" class="btn btn-primary btn-sm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Save Project</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Script Entry Point -->
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
